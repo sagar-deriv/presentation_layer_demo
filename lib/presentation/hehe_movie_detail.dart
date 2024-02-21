@@ -47,13 +47,11 @@ class _HeheMovieDetailBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const _HeaderSection(),
-                _TitleSection(movie: movie),
+                const _TitleSection(),
                 const SizedBox(height: 12),
-                _GenreSection(movie: movie),
-                _MovieDescription(movie: movie),
-                movie.cast != null
-                    ? _CastSection(casts: movie.cast!)
-                    : const SizedBox()
+                const _GenreSection(),
+                const _MovieDescription(),
+                movie.cast != null ? const _CastSection() : const SizedBox()
               ],
             ),
           ),
