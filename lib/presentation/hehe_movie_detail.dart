@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hehe_app/presentation/cubit/movie_detail_cubit.dart';
 import 'package:hehe_app/presentation/widgets/bg_image.dart';
 import 'package:hehe_app/presentation/widgets/custom_chip.dart';
-import 'package:hehe_app/presentation/widgets/download_container.dart';
 import 'package:hehe_app/presentation/widgets/movie_stat_info.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -39,10 +38,10 @@ class _HeheMovieDetailBody extends StatelessWidget {
     return BlocBuilder<MovieDetailCubit, MovieDetailState>(
       builder: (context, state) {
         return state.when(
-          initial: () => const _ShimmerLoading(),
-          loading: () => const _ShimmerLoading(),
+          initial: () => const Looooadingg(),
+          loading: () => const Looooadingg(),
           error: (String message) => _ErrorWidget(message: message),
-          loaded: (Movie movie) => SingleChildScrollView(
+          loaded: (Movie movie, _) => SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -78,8 +77,8 @@ class _ErrorWidget extends StatelessWidget {
   }
 }
 
-class _ShimmerLoading extends StatelessWidget {
-  const _ShimmerLoading();
+class Looooadingg extends StatelessWidget {
+  const Looooadingg({super.key});
 
   @override
   Widget build(BuildContext context) {

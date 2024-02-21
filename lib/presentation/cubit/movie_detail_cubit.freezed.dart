@@ -20,7 +20,8 @@ mixin _$MovieDetailState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Movie movie) loaded,
+    required TResult Function(Movie movie, DownloadStatus downloadStatus)
+        loaded,
     required TResult Function(String errorMessage) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,7 @@ mixin _$MovieDetailState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Movie movie)? loaded,
+    TResult? Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult? Function(String errorMessage)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,33 +37,33 @@ mixin _$MovieDetailState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Movie movie)? loaded,
+    TResult Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -104,7 +105,7 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl implements Initial {
   const _$InitialImpl();
 
   @override
@@ -126,7 +127,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Movie movie) loaded,
+    required TResult Function(Movie movie, DownloadStatus downloadStatus)
+        loaded,
     required TResult Function(String errorMessage) error,
   }) {
     return initial();
@@ -137,7 +139,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Movie movie)? loaded,
+    TResult? Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult? Function(String errorMessage)? error,
   }) {
     return initial?.call();
@@ -148,7 +150,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Movie movie)? loaded,
+    TResult Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -161,10 +163,10 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
     return initial(this);
   }
@@ -172,10 +174,10 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(Error value)? error,
   }) {
     return initial?.call(this);
   }
@@ -183,10 +185,10 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -196,8 +198,8 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements MovieDetailState {
-  const factory _Initial() = _$InitialImpl;
+abstract class Initial implements MovieDetailState {
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
@@ -218,7 +220,7 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
+class _$LoadingImpl implements Loading {
   const _$LoadingImpl();
 
   @override
@@ -240,7 +242,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Movie movie) loaded,
+    required TResult Function(Movie movie, DownloadStatus downloadStatus)
+        loaded,
     required TResult Function(String errorMessage) error,
   }) {
     return loading();
@@ -251,7 +254,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Movie movie)? loaded,
+    TResult? Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult? Function(String errorMessage)? error,
   }) {
     return loading?.call();
@@ -262,7 +265,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Movie movie)? loaded,
+    TResult Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -275,10 +278,10 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
     return loading(this);
   }
@@ -286,10 +289,10 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(Error value)? error,
   }) {
     return loading?.call(this);
   }
@@ -297,10 +300,10 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -310,8 +313,8 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements MovieDetailState {
-  const factory _Loading() = _$LoadingImpl;
+abstract class Loading implements MovieDetailState {
+  const factory Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
@@ -320,9 +323,10 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Movie movie});
+  $Res call({Movie movie, DownloadStatus downloadStatus});
 
   $MovieCopyWith<$Res> get movie;
+  $DownloadStatusCopyWith<$Res> get downloadStatus;
 }
 
 /// @nodoc
@@ -337,12 +341,17 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? movie = null,
+    Object? downloadStatus = null,
   }) {
     return _then(_$LoadedImpl(
       movie: null == movie
           ? _value.movie
           : movie // ignore: cast_nullable_to_non_nullable
               as Movie,
+      downloadStatus: null == downloadStatus
+          ? _value.downloadStatus
+          : downloadStatus // ignore: cast_nullable_to_non_nullable
+              as DownloadStatus,
     ));
   }
 
@@ -353,19 +362,31 @@ class __$$LoadedImplCopyWithImpl<$Res>
       return _then(_value.copyWith(movie: value));
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DownloadStatusCopyWith<$Res> get downloadStatus {
+    return $DownloadStatusCopyWith<$Res>(_value.downloadStatus, (value) {
+      return _then(_value.copyWith(downloadStatus: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl({required this.movie});
+class _$LoadedImpl implements Loaded {
+  const _$LoadedImpl(
+      {required this.movie, this.downloadStatus = const DownloadStatus.idle()});
 
   @override
   final Movie movie;
+  @override
+  @JsonKey()
+  final DownloadStatus downloadStatus;
 
   @override
   String toString() {
-    return 'MovieDetailState.loaded(movie: $movie)';
+    return 'MovieDetailState.loaded(movie: $movie, downloadStatus: $downloadStatus)';
   }
 
   @override
@@ -373,11 +394,13 @@ class _$LoadedImpl implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            (identical(other.movie, movie) || other.movie == movie));
+            (identical(other.movie, movie) || other.movie == movie) &&
+            (identical(other.downloadStatus, downloadStatus) ||
+                other.downloadStatus == downloadStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, movie);
+  int get hashCode => Object.hash(runtimeType, movie, downloadStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -390,10 +413,11 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Movie movie) loaded,
+    required TResult Function(Movie movie, DownloadStatus downloadStatus)
+        loaded,
     required TResult Function(String errorMessage) error,
   }) {
-    return loaded(movie);
+    return loaded(movie, downloadStatus);
   }
 
   @override
@@ -401,10 +425,10 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Movie movie)? loaded,
+    TResult? Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult? Function(String errorMessage)? error,
   }) {
-    return loaded?.call(movie);
+    return loaded?.call(movie, downloadStatus);
   }
 
   @override
@@ -412,12 +436,12 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Movie movie)? loaded,
+    TResult Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(movie);
+      return loaded(movie, downloadStatus);
     }
     return orElse();
   }
@@ -425,10 +449,10 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
     return loaded(this);
   }
@@ -436,10 +460,10 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(Error value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -447,10 +471,10 @@ class _$LoadedImpl implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -460,10 +484,13 @@ class _$LoadedImpl implements _Loaded {
   }
 }
 
-abstract class _Loaded implements MovieDetailState {
-  const factory _Loaded({required final Movie movie}) = _$LoadedImpl;
+abstract class Loaded implements MovieDetailState {
+  const factory Loaded(
+      {required final Movie movie,
+      final DownloadStatus downloadStatus}) = _$LoadedImpl;
 
   Movie get movie;
+  DownloadStatus get downloadStatus;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -502,7 +529,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorImpl implements _Error {
+class _$ErrorImpl implements Error {
   const _$ErrorImpl({required this.errorMessage});
 
   @override
@@ -536,7 +563,8 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Movie movie) loaded,
+    required TResult Function(Movie movie, DownloadStatus downloadStatus)
+        loaded,
     required TResult Function(String errorMessage) error,
   }) {
     return error(errorMessage);
@@ -547,7 +575,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Movie movie)? loaded,
+    TResult? Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult? Function(String errorMessage)? error,
   }) {
     return error?.call(errorMessage);
@@ -558,7 +586,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Movie movie)? loaded,
+    TResult Function(Movie movie, DownloadStatus downloadStatus)? loaded,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -571,10 +599,10 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Error value) error,
   }) {
     return error(this);
   }
@@ -582,10 +610,10 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(Error value)? error,
   }) {
     return error?.call(this);
   }
@@ -593,10 +621,10 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -606,11 +634,609 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements MovieDetailState {
-  const factory _Error({required final String errorMessage}) = _$ErrorImpl;
+abstract class Error implements MovieDetailState {
+  const factory Error({required final String errorMessage}) = _$ErrorImpl;
 
   String get errorMessage;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$DownloadStatus {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(double downloadPercentage) downloading,
+    required TResult Function() downloaded,
+    required TResult Function(String reason) downloadFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? idle,
+    TResult? Function(double downloadPercentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(String reason)? downloadFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(double downloadPercentage)? downloading,
+    TResult Function()? downloaded,
+    TResult Function(String reason)? downloadFailed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(Downloading value) downloading,
+    required TResult Function(Downloaded value) downloaded,
+    required TResult Function(DownloadFailed value) downloadFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Idle value)? idle,
+    TResult? Function(Downloading value)? downloading,
+    TResult? Function(Downloaded value)? downloaded,
+    TResult? Function(DownloadFailed value)? downloadFailed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(Downloading value)? downloading,
+    TResult Function(Downloaded value)? downloaded,
+    TResult Function(DownloadFailed value)? downloadFailed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DownloadStatusCopyWith<$Res> {
+  factory $DownloadStatusCopyWith(
+          DownloadStatus value, $Res Function(DownloadStatus) then) =
+      _$DownloadStatusCopyWithImpl<$Res, DownloadStatus>;
+}
+
+/// @nodoc
+class _$DownloadStatusCopyWithImpl<$Res, $Val extends DownloadStatus>
+    implements $DownloadStatusCopyWith<$Res> {
+  _$DownloadStatusCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$IdleImplCopyWith<$Res> {
+  factory _$$IdleImplCopyWith(
+          _$IdleImpl value, $Res Function(_$IdleImpl) then) =
+      __$$IdleImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$IdleImplCopyWithImpl<$Res>
+    extends _$DownloadStatusCopyWithImpl<$Res, _$IdleImpl>
+    implements _$$IdleImplCopyWith<$Res> {
+  __$$IdleImplCopyWithImpl(_$IdleImpl _value, $Res Function(_$IdleImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$IdleImpl extends Idle {
+  const _$IdleImpl() : super._();
+
+  @override
+  String toString() {
+    return 'DownloadStatus.idle()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$IdleImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(double downloadPercentage) downloading,
+    required TResult Function() downloaded,
+    required TResult Function(String reason) downloadFailed,
+  }) {
+    return idle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? idle,
+    TResult? Function(double downloadPercentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(String reason)? downloadFailed,
+  }) {
+    return idle?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(double downloadPercentage)? downloading,
+    TResult Function()? downloaded,
+    TResult Function(String reason)? downloadFailed,
+    required TResult orElse(),
+  }) {
+    if (idle != null) {
+      return idle();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(Downloading value) downloading,
+    required TResult Function(Downloaded value) downloaded,
+    required TResult Function(DownloadFailed value) downloadFailed,
+  }) {
+    return idle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Idle value)? idle,
+    TResult? Function(Downloading value)? downloading,
+    TResult? Function(Downloaded value)? downloaded,
+    TResult? Function(DownloadFailed value)? downloadFailed,
+  }) {
+    return idle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(Downloading value)? downloading,
+    TResult Function(Downloaded value)? downloaded,
+    TResult Function(DownloadFailed value)? downloadFailed,
+    required TResult orElse(),
+  }) {
+    if (idle != null) {
+      return idle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Idle extends DownloadStatus {
+  const factory Idle() = _$IdleImpl;
+  const Idle._() : super._();
+}
+
+/// @nodoc
+abstract class _$$DownloadingImplCopyWith<$Res> {
+  factory _$$DownloadingImplCopyWith(
+          _$DownloadingImpl value, $Res Function(_$DownloadingImpl) then) =
+      __$$DownloadingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double downloadPercentage});
+}
+
+/// @nodoc
+class __$$DownloadingImplCopyWithImpl<$Res>
+    extends _$DownloadStatusCopyWithImpl<$Res, _$DownloadingImpl>
+    implements _$$DownloadingImplCopyWith<$Res> {
+  __$$DownloadingImplCopyWithImpl(
+      _$DownloadingImpl _value, $Res Function(_$DownloadingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? downloadPercentage = null,
+  }) {
+    return _then(_$DownloadingImpl(
+      downloadPercentage: null == downloadPercentage
+          ? _value.downloadPercentage
+          : downloadPercentage // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DownloadingImpl extends Downloading {
+  const _$DownloadingImpl({this.downloadPercentage = 0}) : super._();
+
+  @override
+  @JsonKey()
+  final double downloadPercentage;
+
+  @override
+  String toString() {
+    return 'DownloadStatus.downloading(downloadPercentage: $downloadPercentage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DownloadingImpl &&
+            (identical(other.downloadPercentage, downloadPercentage) ||
+                other.downloadPercentage == downloadPercentage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, downloadPercentage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DownloadingImplCopyWith<_$DownloadingImpl> get copyWith =>
+      __$$DownloadingImplCopyWithImpl<_$DownloadingImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(double downloadPercentage) downloading,
+    required TResult Function() downloaded,
+    required TResult Function(String reason) downloadFailed,
+  }) {
+    return downloading(downloadPercentage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? idle,
+    TResult? Function(double downloadPercentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(String reason)? downloadFailed,
+  }) {
+    return downloading?.call(downloadPercentage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(double downloadPercentage)? downloading,
+    TResult Function()? downloaded,
+    TResult Function(String reason)? downloadFailed,
+    required TResult orElse(),
+  }) {
+    if (downloading != null) {
+      return downloading(downloadPercentage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(Downloading value) downloading,
+    required TResult Function(Downloaded value) downloaded,
+    required TResult Function(DownloadFailed value) downloadFailed,
+  }) {
+    return downloading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Idle value)? idle,
+    TResult? Function(Downloading value)? downloading,
+    TResult? Function(Downloaded value)? downloaded,
+    TResult? Function(DownloadFailed value)? downloadFailed,
+  }) {
+    return downloading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(Downloading value)? downloading,
+    TResult Function(Downloaded value)? downloaded,
+    TResult Function(DownloadFailed value)? downloadFailed,
+    required TResult orElse(),
+  }) {
+    if (downloading != null) {
+      return downloading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Downloading extends DownloadStatus {
+  const factory Downloading({final double downloadPercentage}) =
+      _$DownloadingImpl;
+  const Downloading._() : super._();
+
+  double get downloadPercentage;
+  @JsonKey(ignore: true)
+  _$$DownloadingImplCopyWith<_$DownloadingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DownloadedImplCopyWith<$Res> {
+  factory _$$DownloadedImplCopyWith(
+          _$DownloadedImpl value, $Res Function(_$DownloadedImpl) then) =
+      __$$DownloadedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DownloadedImplCopyWithImpl<$Res>
+    extends _$DownloadStatusCopyWithImpl<$Res, _$DownloadedImpl>
+    implements _$$DownloadedImplCopyWith<$Res> {
+  __$$DownloadedImplCopyWithImpl(
+      _$DownloadedImpl _value, $Res Function(_$DownloadedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DownloadedImpl extends Downloaded {
+  const _$DownloadedImpl() : super._();
+
+  @override
+  String toString() {
+    return 'DownloadStatus.downloaded()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DownloadedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(double downloadPercentage) downloading,
+    required TResult Function() downloaded,
+    required TResult Function(String reason) downloadFailed,
+  }) {
+    return downloaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? idle,
+    TResult? Function(double downloadPercentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(String reason)? downloadFailed,
+  }) {
+    return downloaded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(double downloadPercentage)? downloading,
+    TResult Function()? downloaded,
+    TResult Function(String reason)? downloadFailed,
+    required TResult orElse(),
+  }) {
+    if (downloaded != null) {
+      return downloaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(Downloading value) downloading,
+    required TResult Function(Downloaded value) downloaded,
+    required TResult Function(DownloadFailed value) downloadFailed,
+  }) {
+    return downloaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Idle value)? idle,
+    TResult? Function(Downloading value)? downloading,
+    TResult? Function(Downloaded value)? downloaded,
+    TResult? Function(DownloadFailed value)? downloadFailed,
+  }) {
+    return downloaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(Downloading value)? downloading,
+    TResult Function(Downloaded value)? downloaded,
+    TResult Function(DownloadFailed value)? downloadFailed,
+    required TResult orElse(),
+  }) {
+    if (downloaded != null) {
+      return downloaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Downloaded extends DownloadStatus {
+  const factory Downloaded() = _$DownloadedImpl;
+  const Downloaded._() : super._();
+}
+
+/// @nodoc
+abstract class _$$DownloadFailedImplCopyWith<$Res> {
+  factory _$$DownloadFailedImplCopyWith(_$DownloadFailedImpl value,
+          $Res Function(_$DownloadFailedImpl) then) =
+      __$$DownloadFailedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String reason});
+}
+
+/// @nodoc
+class __$$DownloadFailedImplCopyWithImpl<$Res>
+    extends _$DownloadStatusCopyWithImpl<$Res, _$DownloadFailedImpl>
+    implements _$$DownloadFailedImplCopyWith<$Res> {
+  __$$DownloadFailedImplCopyWithImpl(
+      _$DownloadFailedImpl _value, $Res Function(_$DownloadFailedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? reason = null,
+  }) {
+    return _then(_$DownloadFailedImpl(
+      reason: null == reason
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DownloadFailedImpl extends DownloadFailed {
+  const _$DownloadFailedImpl({required this.reason}) : super._();
+
+  @override
+  final String reason;
+
+  @override
+  String toString() {
+    return 'DownloadStatus.downloadFailed(reason: $reason)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DownloadFailedImpl &&
+            (identical(other.reason, reason) || other.reason == reason));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, reason);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DownloadFailedImplCopyWith<_$DownloadFailedImpl> get copyWith =>
+      __$$DownloadFailedImplCopyWithImpl<_$DownloadFailedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function(double downloadPercentage) downloading,
+    required TResult Function() downloaded,
+    required TResult Function(String reason) downloadFailed,
+  }) {
+    return downloadFailed(reason);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? idle,
+    TResult? Function(double downloadPercentage)? downloading,
+    TResult? Function()? downloaded,
+    TResult? Function(String reason)? downloadFailed,
+  }) {
+    return downloadFailed?.call(reason);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function(double downloadPercentage)? downloading,
+    TResult Function()? downloaded,
+    TResult Function(String reason)? downloadFailed,
+    required TResult orElse(),
+  }) {
+    if (downloadFailed != null) {
+      return downloadFailed(reason);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Idle value) idle,
+    required TResult Function(Downloading value) downloading,
+    required TResult Function(Downloaded value) downloaded,
+    required TResult Function(DownloadFailed value) downloadFailed,
+  }) {
+    return downloadFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Idle value)? idle,
+    TResult? Function(Downloading value)? downloading,
+    TResult? Function(Downloaded value)? downloaded,
+    TResult? Function(DownloadFailed value)? downloadFailed,
+  }) {
+    return downloadFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Idle value)? idle,
+    TResult Function(Downloading value)? downloading,
+    TResult Function(Downloaded value)? downloaded,
+    TResult Function(DownloadFailed value)? downloadFailed,
+    required TResult orElse(),
+  }) {
+    if (downloadFailed != null) {
+      return downloadFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DownloadFailed extends DownloadStatus {
+  const factory DownloadFailed({required final String reason}) =
+      _$DownloadFailedImpl;
+  const DownloadFailed._() : super._();
+
+  String get reason;
+  @JsonKey(ignore: true)
+  _$$DownloadFailedImplCopyWith<_$DownloadFailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

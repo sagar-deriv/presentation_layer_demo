@@ -9,7 +9,7 @@ class _CastSection extends StatelessWidget {
         builder: (context, state) {
       return state.maybeWhen(
         orElse: () => const SizedBox(),
-        loaded: (movie) => Column(
+        loaded: (movie, _) => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(

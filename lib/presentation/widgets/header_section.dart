@@ -9,7 +9,7 @@ class _HeaderSection extends StatelessWidget {
         builder: (context, state) {
       return state.maybeWhen(
         orElse: () => const SizedBox(),
-        loaded: (Movie movie) => Stack(
+        loaded: (Movie movie, _) => Stack(
           children: [
             CarouselSlider(
               options: CarouselOptions(
@@ -44,7 +44,7 @@ class _CardAndStatsWidget extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () => const SizedBox(),
-          loaded: (Movie movie) => SizedBox(
+          loaded: (Movie movie, _) => SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -123,26 +123,33 @@ class _StatSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        MovieStatInfo(
-          label: '${movie.rating.toString()} / 10',
-          iconData: FluentIcons.star_28_filled,
-        ),
-        const SizedBox(height: 16.0),
-        const MovieStatInfo(
-          label: '23023',
-          iconData: FluentIcons.arrow_download_24_filled,
-        ),
-        const SizedBox(height: 16.0),
-        MovieStatInfo(
-          label: movie.likeCount.toString(),
-          iconData: Icons.houseboat_sharp,
-        ),
-        const SizedBox(height: 16.0),
-        _DownloadButton(movie: movie)
-      ],
+    return BlocBuilder<MovieDetailCubit, MovieDetailState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          orElse: () => const SizedBox(),
+          loaded: (movie, _) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              MovieStatInfo(
+                label: '${movie.rating.toString()} / 10',
+                iconData: FluentIcons.star_28_filled,
+              ),
+              const SizedBox(height: 16.0),
+              const MovieStatInfo(
+                label: '23023',
+                iconData: FluentIcons.arrow_download_24_filled,
+              ),
+              const SizedBox(height: 16.0),
+              MovieStatInfo(
+                label: movie.likeCount.toString(),
+                iconData: Icons.houseboat_sharp,
+              ),
+              const SizedBox(height: 16.0),
+              _DownloadButton(movie: movie)
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -156,27 +163,56 @@ class _DownloadButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
-      icon: Icon(
-        Icons.download,
-        color: Theme.of(context).colorScheme.secondary,
-      ),
-      label: Text(
-        'Download',
-        style: TextStyle(color: Theme.of(context).colorScheme.secondary),
-      ),
-      onPressed: () {
-        showModalBottomSheet(
-          context: context,
-          backgroundColor: Theme.of(context).secondaryHeaderColor,
-          elevation: 8,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16.0),
-              topRight: Radius.circular(16.0),
+    return BlocConsumer<MovieDetailCubit, MovieDetailState>(
+      listener: (context, state) => state.maybeWhen(
+        orElse: () => null,
+        loaded: (movie, downloadStatus) => downloadStatus.maybeWhen(
+          downloaded: () => ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Downloaded ${movie.title}'),
             ),
           ),
-          builder: (context) => DownloadContainer(movie),
+          downloadFailed: (reason) =>
+              ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Failed to download ${movie.title}'),
+            ),
+          ),
+          orElse: () => null,
+        ),
+      ),
+      builder: (context, state) {
+        return state.maybeWhen(
+          orElse: () => const SizedBox(),
+          loaded: (movie, status) => status.maybeWhen(
+            downloading: (_) => const CircularProgressIndicator(),
+            orElse: () => TextButton.icon(
+              icon: Icon(
+                Icons.download,
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+              label: Text(
+                'Download',
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.secondary),
+              ),
+              onPressed: () {
+                context.read<MovieDetailCubit>().downloadMovie(movie.id!);
+                // showModalBottomSheet(
+                //   context: context,
+                //   backgroundColor: Theme.of(context).secondaryHeaderColor,
+                //   elevation: 8,
+                //   shape: const RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.only(
+                //       topLeft: Radius.circular(16.0),
+                //       topRight: Radius.circular(16.0),
+                //     ),
+                //   ),
+                //   builder: (context) => DownloadContainer(movie),
+                // );
+              },
+            ),
+          ),
         );
       },
     );

@@ -9,7 +9,7 @@ class _TitleSection extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () => SizedBox(),
-          loaded: (movie) => Padding(
+          loaded: (movie, _) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
               children: [

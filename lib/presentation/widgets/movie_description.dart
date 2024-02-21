@@ -9,7 +9,7 @@ class _MovieDescription extends StatelessWidget {
         builder: (context, state) {
       return state.maybeWhen(
         orElse: () => const SizedBox(),
-        loaded: (movie) => Padding(
+        loaded: (movie, _) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(
             movie.descriptionFull!,

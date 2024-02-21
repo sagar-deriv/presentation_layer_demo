@@ -9,7 +9,7 @@ class _GenreSection extends StatelessWidget {
         builder: (context, state) {
       return state.maybeWhen(
         orElse: () => const SizedBox(),
-        loaded: (movie) => Wrap(
+        loaded: (movie, _) => Wrap(
           direction: Axis.horizontal,
           children: [
             ...movie.genres!
