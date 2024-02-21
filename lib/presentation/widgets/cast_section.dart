@@ -1,28 +1,35 @@
 part of '../../presentation/hehe_movie_detail.dart';
 
 class _CastSection extends StatelessWidget {
-  final List<Cast> casts;
-  const _CastSection({required this.casts});
+  const _CastSection();
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text('Cast', style: Theme.of(context).textTheme.titleLarge),
+    return BlocBuilder<MovieDetailCubit, MovieDetailState>(
+        builder: (context, state) {
+      return state.maybeWhen(
+        orElse: () => const SizedBox(),
+        loaded: (movie) => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child:
+                  Text('Cast', style: Theme.of(context).textTheme.titleLarge),
+            ),
+            SizedBox(
+              height: 150.0,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: movie.cast!.length,
+                itemBuilder: (context, index) =>
+                    _CastItem(cast: movie.cast![index]),
+              ),
+            ),
+          ],
         ),
-        SizedBox(
-          height: 150.0,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: casts.length,
-            itemBuilder: (context, index) => _CastItem(cast: casts[index]),
-          ),
-        ),
-      ],
-    );
+      );
+    });
   }
 }
 
